@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}Introducing Dharmabot.ai{% endblock %}
+
+{% block styles %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color:white;
+            color: #FFFFFF;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #0D0D0D;
+            border-bottom: 1px solid #262626;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .date {
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .primary-button {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 1px solid #FFFFFF;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: #E5E5E5;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 2rem;
+            top: 1.5rem;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar" style="background-color: #e1e3e1;">
+        <a href="#" class="logo" style="color: black;">Dharmabot.ai</a>
+        <div class="search-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 19L13.8 13.8M16 8.5C16 12.6421 12.6421 16 8.5 16C4.35786 16 1 12.6421 1 8.5C1 4.35786 4.35786 1 8.5 1C12.6421 1 16 4.35786 16 8.5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </nav>
+
+    <main class="main-content" style="color: black;">
+        <div class="date" style="color: black;">January 10, 2025</div>
+        <h1 class="title">Introducing Dharmabot.ai</h1>
+        
+        <div class="button-group">
+            <a href="{% url 'user_login' %}" class="button primary-button" style="background-color: #e1e3e1;">
+                Try Dharmabot.ai
+            </a>
+        </div>
+
+        <p class="description" style="color: black;">
+            We've trained a model called ChatGPT which interacts in a conversational way. The dialogue format makes it possible for ChatGPT to answer followup questions, admit its mistakes, challenge incorrect premises, and reject inappropriate requests.
+        </p>
+    </main>
+    {% endblock %}

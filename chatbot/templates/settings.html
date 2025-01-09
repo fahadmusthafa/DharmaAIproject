@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .settings-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .settings-header h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .settings-item {
+            margin-bottom: 20px;
+        }
+
+        .settings-label {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .settings-value {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .logout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            text-align: center;
+            color: white;
+            background-color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="settings-header">
+            <h1>Settings</h1>
+        </div>
+
+        <div class="settings-item">
+            <div class="settings-label">Name</div>
+            <div class="settings-value">{{ user.username }}</div>
+        </div>
+
+        <div class="settings-item">
+            <div class="settings-label">Email</div>
+            <div class="settings-value">{{ user.email }}</div>
+        </div>
+
+        <a href="{% url 'user_logout' %}" class="logout-button">Logout</a>
+    </div>
+</body>
+</html>

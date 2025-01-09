@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}Dharmabot.ai Registration{% endblock %}
+
+{% block styles %}
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #e1e3e1;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 30px;
+            box-shadow: 0 6px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #666;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #e1e3e1;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        
+
+        .error {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+    </style>
+    {% endblock %}
+
+    {% block content %}
+
+    <div class="container">
+        {% if error_message %}
+        <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+      {% endif %}
+        <div class="logo">
+            <img src="static/img/Logo.png" style="height: 50px;width: 50px;" alt="Dharmabot.ai Logo" />
+        </div>
+        <h2>Create Account</h2>
+        <form id="registrationForm" onsubmit="return validateForm(event)" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required minlength="3" maxlength="20">
+                <div id="usernameError" class="error">Username must be 3-20 characters long</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <div id="emailError" class="error">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password1">Password</label>
+                <input type="password" id="password1" name="password1" required minlength="8">
+                <div id="passwordError" class="error">Password must be at least 8 characters long</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input type="password" id="password2" name="password2" required>
+                <div id="confirmPasswordError" class="error">Passwords do not match</div>
+            </div>
+
+            <button type="submit" style="color: black;">Register</button>
+        </form>
+    </div>
+    {% endblock %}
