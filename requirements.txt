@@ -1,0 +1,6 @@
+Django>=3.2,<5.0
+psycopg2>=2.9.6  # If you're using PostgreSQL
+mysqlclient>=2.2.0  # If you're using MySQL
+pillow>=9.2.0  # For image processing
+django-environ>=0.10.0  # For managing environment variables
+djangorestframework>=3.14.0  # If you're using DRF
