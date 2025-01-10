@@ -106,8 +106,6 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR,'static'),]
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 ALLOWED_HOSTS =['127.0.0.1', 'localhost', 'https://dharmaaiproject.onrender.com']
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
@@ -123,27 +121,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # }
 import environ
 
+
 env = environ.Env()
 environ.Env.read_env()
 
 # Debugging step: Print out the environment variables to check if they are loaded
-print("DB_NAME:", env('DB_NAME'))
-print("DB_USER:", env('DB_USER'))
-print("DB_PASSWORD:", env('DB_PASSWORD'))
-print("DB_HOST:", env('DB_HOST'))
-print("DB_PORT:", env('DB_PORT'))
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
+        'ENGINE': 'djongo',  # djongo for MongoDB integration with Django
+        'NAME':os.getenv('DB_NAME'),
+        'CLIENT': {
+            'host':os.getenv('MONGO_URI'),
+        },
     }
 }
-
 
 
 
