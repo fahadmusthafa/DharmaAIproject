@@ -1,8 +1,8 @@
 services:
   - type: web
-    name: my-web-app
+    name: dharmabot
     env: python
     region: oregon
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn your_project_name.wsgi:application"
+    startCommand: "gunicorn dharmabot.wsgi:application --bind 0.0.0.0:8000"
     plan: free
