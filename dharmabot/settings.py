@@ -116,7 +116,6 @@ ALLOWED_HOSTS = ['anjalichandran454.pythonanywhere.com']
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
 import environ
 
 env = environ.Env()
@@ -132,6 +131,7 @@ DATABASES = {
         'PORT': env('DB_PORT'),
     }
 }
+
 
 
 
