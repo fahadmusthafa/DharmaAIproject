@@ -6,7 +6,7 @@ services:
     startCommand: gunicorn dharmabot.wsgi:application --bind 0.0.0.0:8000
     envVars:
       - key: DB_NAME
-        value: DharmaAIProject
+        value: DharmaAIProject.render.com
       - key: DB_USER
         value: postgres
       - key: DB_PASSWORD
